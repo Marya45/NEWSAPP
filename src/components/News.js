@@ -48,14 +48,25 @@ export class News extends Component {
 
   constructor(){
     super();
-    console.log("Hello i am a contructor from new component");
+    // console.log("Hello i am a contructor from new component");
     this.state = {
       articles: this.articles,
       loading: false
     }
   }
 
+//run after the render() 
+  async componentDidMount(){
+    // console.log("cdm");
+    let url = "API-URL";
+    let data = await fetch(url);
+    let parsedData = await data.json();
+    console.log(parsedData);
+    this.setState({articles: parsedData.articles});
+  }
+
   render() {
+    // console.log("render");
     return (
       <div className="container my-3">
 
@@ -64,8 +75,8 @@ export class News extends Component {
         <div className="row">
           {this.state.articles.map((element)=>{
             return <div className="col-md-4" key={element.url}>
-                      <NewsItem title={element.title.length>=45?element.title.slice(0, 45):element.title} 
-                      description={element.description.length>=60?element.description.slice(0, 60):element.description} 
+                      <NewsItem title={element.title?(element.title.length>=45?element.title.slice(0, 45):element.title):""} 
+                      description={element.description?(element.description.length>=60?element.description.slice(0, 60):element.description):""} 
                       imageUrl={element.urlToImage} newsUrl={element.url}/>
                     </div>
           })}

@@ -5,7 +5,6 @@ export class Spinner extends Component {
     return (
       <div className="container text-center my-3">
         <div className="spinner-border text-dark text-center" role="status">
-            <span className="visually-hidden">Loading...</span>
         </div>
       </div>
     )

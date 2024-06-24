@@ -30,7 +30,7 @@ const News = (props)=> {
   }
 
   useEffect(()=>{
-    document.title = `NewsMonkey - ${capitalizefirstletter(props.category)}`;
+    document.title = `NewsWave - ${capitalizefirstletter(props.category)}`;
     updateNews();
   },[])
 
@@ -57,7 +57,7 @@ const News = (props)=> {
 
     return (
       <>
-        <h1 className="text-center" style={{margin: '35px 0px',marginTop: '80px'}} >NewsMonkey - Top {capitalizefirstletter(props.category)} Headlines </h1>
+        <h1 className="text-center" style={{margin: '35px 0px',marginTop: '80px'}} >NewsWave - Top {capitalizefirstletter(props.category)} Headlines </h1>
         {loading && <Spinner/>}
 
         <InfiniteScroll

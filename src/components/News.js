@@ -32,6 +32,7 @@ const News = (props)=> {
   useEffect(()=>{
     document.title = `NewsWave - ${capitalizefirstletter(props.category)}`;
     updateNews();
+    // eslint-disable-next-line
   },[])
 
   // const handleNextClick = async()=>{
